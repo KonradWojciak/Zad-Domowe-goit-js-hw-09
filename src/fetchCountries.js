@@ -13,7 +13,7 @@ async function fetchCountries(name) {
   const stringParams = queryParams.toString();
   const urlWithParams = `${url}?${stringParams}`;
 
-  const Countries = await fetch(urlWithParams, options);
+  const Countries = await fetch(urlWithParams);
 
   return Countries.catch(error => console.log(error));
 }

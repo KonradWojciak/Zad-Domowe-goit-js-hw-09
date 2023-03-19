@@ -23,34 +23,28 @@ for (const country of countries) {
   
   if (inputValue.includes(countryName)) {
     const li = document.createElement('li');
-    li.textContent = country.name.official;
+    li.innerHTML = `
+      <img src="${country.flags.svg}" alt="${country.name.official} flag">
+      <span>${country.name.official}</span>
+    `;
     countryList.appendChild(li);
   }
-  else if 
-}
-});
 
-    const countries = await fetchCountries(inputValue);
+  if (countryName === inputValue){
 
-    countryList.innerHTML = '';
-    countryInfo.innerHTML = '';
+async function createCountry() {
 
-    countries.forEach(country => {
-      const li = document.createElement('li');
-      li.textContent = country.name.official;
-      countryList.appendChild(li);
-
-      const info = document.createElement('div');
-      info.innerHTML = `
-      <h2>${country.name.official}</h2>
-      <img src="${country.flags.svg}" alt="${country.name.official} flag">
-      <ul>
-        <li>Capital: ${country.capital}</li>
-        <li>Population: ${country.population}</li>
-        <li>Languages: ${Object.values(country.languages).join(', ')}</li>
-      </ul>`;
-      countryInfo.innerHTML = '';
-      countryInfo.appendChild(info);
-    });
-  }, DEBOUNCE_DELAY)
+  const info = document.createElement('div');
+  info.innerHTML = `
+  <h2>${country.name.official}</h2>
+  <img src="${country.flags.svg}" alt="${country.name.official} flag">
+  <ul>
+    <li>Capital: ${country.capital}</li>
+    <li>Population: ${country.population}</li>
+    <li>Languages: ${Object.values(country.languages).join(', ')}</li>
+  </ul>`;
+  countryInfo.innerHTML = '';
+  countryInfo.appendChild(info);
+};
+}  , DEBOUNCE_DELAY
 );
