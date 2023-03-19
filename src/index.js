@@ -14,7 +14,7 @@ async function makeCountryList() {
   const li = document.createElement('li');
   li.innerHTML = `
 <img src="${country.flags.svg}" alt="${country.name.official} flag">
-<span>${country.name.official}</span>
+<span style="font-weight: bold;">${country.name.official}</span>
 `;
   countryList.appendChild(li);
 }
@@ -51,7 +51,7 @@ inputBox.addEventListener(
       } else if (countryName === inputValue) {
         makeCountryInfo(countries);
       } else if (inputValue.includes(countryName)) {
-        makeCountryList(country);
+        makeCountryList(countries);
       } else {
         Notify.failure('Oops, there is no country with that name');
       }
