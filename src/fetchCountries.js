@@ -1,4 +1,4 @@
-async function fetchCountries(name) {
+async function fetchCountries() {
   const inputValue = inputBox.value.trim();
   const url = `https://restcountries.com/v3.1/all`;
   const searchParams = {
