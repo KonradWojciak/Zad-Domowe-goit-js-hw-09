@@ -17,6 +17,8 @@ inputBox.addEventListener(
 const inputValue = inputBox.value.trim()
 
 countryList.innerHTML = '';
+countryInfo.innerHTML = '';
+const countries = await fetchCountries(inputValue);
 
 for (const country of countries) {
   const countryName = country.name.official.toLowerCase();
@@ -32,8 +34,6 @@ for (const country of countries) {
 
   if (countryName === inputValue){
 
-async function createCountry() {
-
   const info = document.createElement('div');
   info.innerHTML = `
   <h2>${country.name.official}</h2>
@@ -43,8 +43,11 @@ async function createCountry() {
     <li>Population: ${country.population}</li>
     <li>Languages: ${Object.values(country.languages).join(', ')}</li>
   </ul>`;
-  countryInfo.innerHTML = '';
   countryInfo.appendChild(info);
-};
-}  , DEBOUNCE_DELAY
+}
+
+if 
+}
+}, DEBOUNCE_DELAY)
 );
+
