@@ -41,15 +41,12 @@ inputBox.addEventListener(
     countryList.innerHTML = '';
     countryInfo.innerHTML = '';
 
-    const countries = await fetchCountries(inputValue);
-    const countryName = country.name.official.toLowerCase();
-
     fetchCountries(inputValue).then(countries => {
       if (countries.length > 10) {
         Notify.info('To many matches found. Please enter more specific name');
       } else if (countries.length > 1) {
         makeCountryList(countries);
-      } else if (countryName.length === 1) {
+      } else if (countries.length === 1) {
         makeCountryInfo(countries[0]);
       } else {
         Notify.failure('Oops, there is no country with that name');
